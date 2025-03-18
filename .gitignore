@@ -41,3 +41,55 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# General
+.DS_Store
+*.log
+*.lock
+*.tmp
+*.swp
+*.swo
+*.swn
+*.bak
+
+# Flutter Specific
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.dart_tool/
+.packages
+pubspec.lock
+
+# iOS
+ios/.symlinks/
+ios/Flutter/Flutter.podspec
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/.dart_tool/
+ios/.idea/
+
+# Android
+android/.cxx/
+android/.gradle/
+android/app/google-services.json  # Firebase Config (DO NOT UPLOAD)
+android/key.properties
+android/app/debug.keystore
+android/local.properties
+
+# Windows
+windows/CMakeCache.txt
+windows/CMakeFiles/
+windows/flutter/generated_plugin_registrant.*
+windows/flutter/ephemeral/
+windows/flutter/generated_plugins.cmake
+
+# MacOS/Linux
+linux/flutter/ephemeral/
+macos/Flutter/ephemeral/
+macos/Flutter/GeneratedPluginRegistrant.swift
+
+# Firebase & Credentials (IMPORTANT)
+firebase_options.dart
+google-services.json
+ios/Runner/GoogleService-Info.plist
+.env
