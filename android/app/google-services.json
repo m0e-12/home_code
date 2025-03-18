@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "291207988042",
+    "project_id": "home-code-eda1f",
+    "storage_bucket": "home-code-eda1f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:291207988042:android:0ac20a39eddf70b88ab7b3",
+        "android_client_info": {
+          "package_name": "com.company.homeCode"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "291207988042-n76t6pmtguhpeos1rnk649hqlul9r6ib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0ByY9Z9c-6JJyvU3NKv9FRdZ2X0xpu0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "291207988042-n76t6pmtguhpeos1rnk649hqlul9r6ib.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "291207988042-4ld24manes76bp1lv41nmttl97rqlpqj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.companyname.homeCode"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

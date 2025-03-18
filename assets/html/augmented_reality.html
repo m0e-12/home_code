@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Augmented Reality</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@immersive-web/webxr-polyfill@latest/dist/webxr-polyfill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/jsm/webxr/ARButton.js"></script>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <script>
+        // Initialize WebXR Polyfill for AR support
+        const polyfill = new WebXRPolyfill();
+
+        let scene, camera, renderer, controller;
+        
+        function init() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+            
+            // AR Button
+            document.body.appendChild(ARButton.createButton(renderer));
+
+            // Lighting
+            const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
+            scene.add(light);
+
+            // Controller for placing objects
+            controller = renderer.xr.getController(0);
+            controller.addEventListener('select', placeObject);
+            scene.add(controller);
+
+            renderer.xr.enabled = true;
+        }
+
+        // Function to place objects in AR space
+        function placeObject() {
+            let geometry = new THREE.BoxGeometry(0.3, 0.3, 0.3);
+            let material = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+            let cube = new THREE.Mesh(geometry, material);
+            
+            let pos = controller.position.clone();
+            cube.position.set(pos.x, pos.y - 0.1, pos.z - 0.5); // Adjust placement in front of user
+            
+            scene.add(cube);
+        }
+
+        // Animation loop
+        function animate() {
+            renderer.setAnimationLoop(() => {
+                renderer.render(scene, camera);
+            });
+        }
+
+        init();
+        animate();
+    </script>
+</body>
+</html>
